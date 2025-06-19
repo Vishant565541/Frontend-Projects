@@ -1,0 +1,354 @@
+[data-theme="light"] {
+--bg-color: #fff;
+--color: #333;
+--togglebg: #d4e7d5;
+--toggleslider: #fff;
+--roundcolor: #fff;
+--svgcolor: #111;
+}
+
+[data-theme="dark"] {
+--bg-color: #333333;
+--color: #e9dcdc;
+--togglebg: #333;
+--toggleslider: #e9dcdc;
+--roundcolor: #333;
+--svgcolor: #fff;
+}
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+line-height: 1.4;
+background-color: var(--bg-color);
+transition: all 0.5s;
+background: linear-gradient(135deg, #e0e7ff 0%, #fff1f1 100%);
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* toggle  */
+
+nav {
+display: flex;
+justify-content: flex-end;
+padding: 20px 24px;
+}
+
+.btn {
+position: absolute;
+left: 2rem;
+margin-top: 0.3rem;
+}
+
+.theme-switch-wrapper {
+display: flex;
+align-items: center;
+}
+
+.theme-switch-wrapper em {
+margin-left: 10px;
+font-size: 1rem;
+}
+
+.theme-switch {
+display: inline-block;
+height: 34px;
+position: relative;
+width: 60px;
+}
+
+.theme-switch input {
+display: none;
+}
+
+.slider {
+background-color: var(--togglebg);
+bottom: 0;
+cursor: pointer;
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+transition: 0.4s;
+}
+
+.slider:before {
+background-color: var(--roundcolor);
+bottom: 4px;
+content: "";
+height: 26px;
+left: 4px;
+position: absolute;
+transition: 0.4s;
+width: 26px;
+}
+
+input:checked + .slider {
+background-color: var(--toggleslider);
+}
+
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+
+em {
+color: var(--color);
+}
+
+.container {
+width: 100%;
+max-width: 700px;
+margin: 0 auto;
+padding-left: 10px;
+padding-right: 10px;
+color: var(--color);
+margin: auto;
+padding-top: 4rem;
+background: rgba(255, 255, 255, 0.7);
+box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+backdrop-filter: blur(8px);
+border-radius: 32px;
+border: 1px solid rgba(255,255,255,0.18);
+padding: 3rem 2rem 2rem 2rem;
+margin-top: 2rem;
+transition: box-shadow 0.3s;
+}
+
+.app-title {
+text-align: center;
+margin-bottom: 20px;
+font-size: 80px;
+font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+font-weight: 900;
+letter-spacing: 2px;
+color: #4f46e5;
+text-shadow: 0 4px 24px rgba(79,70,229,0.15);
+margin-bottom: 1.5rem;
+font-size: 3.5rem;
+transition: color 0.3s;
+}
+
+svg {
+width: 64px;
+height: 64px;
+}
+
+.todo-list {
+list-style: none;
+margin-bottom: 20px;
+}
+
+.todo-item {
+margin-bottom: 10px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgba(255,255,255,0.85);
+border-radius: 18px;
+box-shadow: 0 4px 16px 0 rgba(79,70,229,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+padding: 0.8rem 1.2rem;
+margin-bottom: 1.2rem;
+transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+will-change: transform, box-shadow;
+}
+
+.todo-item:hover {
+transform: translateY(-4px) scale(1.03) rotateX(2deg);
+box-shadow: 0 8px 32px 0 rgba(79,70,229,0.18), 0 2px 8px 0 rgba(0,0,0,0.08);
+}
+
+.todo-item span {
+flex-grow: 1;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 22px;
+}
+
+.done span {
+text-decoration: line-through;
+user-select: none;
+}
+
+input[type="checkbox"] {
+display: none;
+}
+input:focus {
+outline: none;
+background-color: #d4e7d5;
+}
+
+.tick {
+width: 30px;
+height: 30px;
+border: none;
+background: linear-gradient(135deg, #c7d2fe 0%, #f3e8ff 100%);
+box-shadow: 0 2px 8px 0 rgba(79,70,229,0.10);
+border-radius: 50%;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transition: box-shadow 0.2s, background 0.2s;
+}
+
+.tick::before {
+content: "✔️";
+font-size: 20px;
+display: none;
+}
+
+.done .tick::before {
+display: inline;
+}
+
+.tick:active {
+box-shadow: 0 1px 2px 0 rgba(79,70,229,0.10);
+background: linear-gradient(135deg, #a5b4fc 0%, #e9d5ff 100%);
+}
+
+.delete-todo {
+border: none;
+background-color: transparent;
+outline: none;
+cursor: pointer;
+background: linear-gradient(135deg, #fee2e2 0%, #f3e8ff 100%);
+border-radius: 50%;
+box-shadow: 0 2px 8px 0 rgba(239,68,68,0.10);
+transition: box-shadow 0.2s, background 0.2s;
+padding: 0.3rem 0.5rem;
+}
+
+.delete-todo:hover {
+background: linear-gradient(135deg, #fca5a5 0%, #c7d2fe 100%);
+box-shadow: 0 4px 16px 0 rgba(239,68,68,0.18);
+}
+
+.delete-todo svg {
+width: 30px;
+height: 30px;
+pointer-events: none;
+}
+
+form {
+width: 100%;
+display: flex;
+justify-content: space-between;
+margin-bottom: 2rem;
+}
+
+input[type="text"] {
+width: 100%;
+padding: 10px;
+border-radius: 4px;
+border: 3px solid #333;
+background: rgba(255,255,255,0.85);
+border: 2px solid #a5b4fc;
+box-shadow: 0 2px 8px 0 rgba(79,70,229,0.08);
+font-size: 1.2rem;
+padding: 0.8rem 1.2rem;
+margin-bottom: 1.5rem;
+transition: border 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus {
+border: 2.5px solid #7c3aed;
+box-shadow: 0 4px 16px 0 rgba(124,58,237,0.15);
+background: #f3e8ff;
+}
+
+/* Add this below all the other styles */
+
+.empty-state {
+flex-direction: column;
+align-items: center;
+justify-content: center;
+display: none;
+background: rgba(236, 233, 254, 0.7);
+border-radius: 24px;
+box-shadow: 0 4px 24px 0 rgba(124,58,237,0.10);
+padding: 2rem 1rem 2.5rem 1rem;
+margin-bottom: 2rem;
+animation: floatIn 1.2s cubic-bezier(.4,2,.6,1);
+}
+
+.checklist-icon {
+margin-bottom: 20px;
+}
+
+.empty-state__title,
+.empty-state__description {
+/* margin-bottom: 20px; */
+font-size: 25px;
+text-align: center;
+margin: 2rem;
+width: 25rem;
+}
+
+/* Add this below the other styles */
+.todo-list:empty {
+display: none;
+}
+
+.todo-list:empty + .empty-state {
+display: flex;
+}
+
+@media (max-width: 608px) {
+.container {
+width: 90%;
+margin: auto;
+padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+border-radius: 18px;
+}
+.app-title {
+font-size: 2.1rem;
+}
+.empty-state__title,
+.empty-state__description {
+font-size: 1.5rem;
+width: 18rem;
+}
+/*   .btn {
+position: absolute;
+right: -1rem;
+} */
+em {
+display: none;
+}
+}
+
+@keyframes floatIn {
+0% { opacity: 0; transform: translateY(40px) scale(0.95) rotateX(10deg); }
+100% { opacity: 1; transform: none; }
+}
+
+@keyframes bounce3D {
+0%, 100% { transform: translateY(0) scale(1) rotateX(0deg); }
+50% { transform: translateY(-18px) scale(1.08) rotateX(8deg); }
+}
+
+.icon {
+color: #7c3aed;
+filter: drop-shadow(0 8px 24px #a5b4fc);
+animation: bounce3D 2.2s infinite cubic-bezier(.4,2,.6,1);
+}

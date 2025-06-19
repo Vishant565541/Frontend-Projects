@@ -1,0 +1,282 @@
+/* center card  */
+body {
+    margin: 0;
+    font-family: tahoma;
+    height: 100vh;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* styling for card  */
+  .card {
+    padding: 30px 0 55px;
+    margin-bottom: 30px;
+    background-color: #f5f5f5;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 20px 20px 42px #d0d0d0, -20px -20px 42px #ffffff;
+    width: 20rem;
+  }
+  
+  /* porfile image section  */
+  /* css for profile image and  fluid effect  */
+  
+  /* 1.2 */
+  .card .picture {
+    display: inline-block;
+    height: 130px;
+    width: 130px;
+    z-index: 1;
+    position: relative;
+    border-radius: 20%;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .card .picture::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    background-color: #1f1b1b;
+    position: absolute;
+    bottom: 135%;
+    right: 0;
+    left: 0;
+    opacity: 0.9;
+    transform: scale(3);
+    transition: all 0.3s linear 0s;
+  }
+  
+  .card:hover .picture::before {
+    height: 100%;
+  }
+  
+  .card .picture::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #1f1b1b;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    z-index: -1;
+  }
+  
+  /* 1.1 */
+  .card .picture img {
+    width: 100%;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(31, 27, 27, 0.15);
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .card:hover .picture img {
+    box-shadow: 0 0 0 14px #f7f5ec, 0 8px 32px rgba(31, 27, 27, 0.25);
+    transform: scale(1.12);
+  }
+  
+  /* porfile image section  */
+  /* marin content section  */
+  /* 2.1 */
+  .card .main-content {
+    margin-bottom: -19px;
+  }
+  
+  /* 2.2 */
+  .card .main-content .title {
+    display: block;
+    font-size: 15px;
+    color: #1f1b1b;
+    text-transform: capitalize;
+    margin: 5px 37px 0;
+  }
+  
+  /* 2.3 */
+  .card .main-content .name {
+    padding: 0;
+    margin: 8px;
+    text-transform: uppercase;
+  }
+  
+  /* marin content section  */
+  /* social media section  */
+  /* 3.1 */
+  .card .social {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #1f1f1b;
+    position: absolute;
+    /* 3.5 */
+    bottom: -100px;
+    left: 0;
+    transition: all 0.5s ease 0s;
+  }
+  
+  /* 3.5 */
+  .card:hover .social {
+    bottom: 0;
+  }
+  
+  /* 3.2 */
+  .card .social li {
+    display: inline-block;
+  }
+  
+  /* 3.3 */
+  .card .social li a {
+    display: block;
+    padding: 10px;
+    font-size: 17px;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+  }
+  
+  /* 3.4 */
+  .card .social li a:hover {
+    color: #3e3b44;
+    background-color: #f7f5ec;
+    transition: 0.5s;
+  }
+  
+  /* skill section  */
+  /* 4.1 */
+  .skills {
+    text-align: left;
+    padding: 15px;
+  }
+  
+  /* 4.2 */
+  .skills ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 4.3 */
+  .skills ul li {
+    border: none;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 7px 7px 0;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+    color: #1f1b1b;
+    box-shadow: 0 2px 8px rgba(31,27,27,0.08);
+    animation: bounceIn 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background 0.3s, color 0.3s;
+  }
+  
+  .skills ul li:nth-child(2n) {
+    background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+    color: #fff;
+  }
+  .skills ul li:nth-child(3n) {
+    background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+    color: #fff;
+  }
+  
+  .skills ul li:hover {
+    background: linear-gradient(135deg, #1f1b1b 0%, #ffd200 100%);
+    color: #fff;
+    transform: scale(1.13) rotate(-2deg);
+    box-shadow: 0 4px 16px rgba(31,27,27,0.18);
+    cursor: pointer;
+  }
+  
+  /* Add floating animation to the profile picture */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* Add bounce-in animation for skills */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* 3D Animated Background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -2;
+    background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+    animation: gradientMove 8s ease-in-out infinite alternate;
+  }
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .background-spheres {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0.5;
+    animation: floatSphere 12s ease-in-out infinite alternate;
+  }
+  .sphere1 {
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, #ff6a00 0%, #ffd200 80%);
+    left: 10vw; top: 20vh;
+    animation-delay: 0s;
+  }
+  .sphere2 {
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, #43cea2 0%, #185a9d 80%);
+    left: 70vw; top: 60vh;
+    animation-delay: 2s;
+  }
+  .sphere3 {
+    width: 90px; height: 90px;
+    background: radial-gradient(circle, #ee0979 0%, #ff6a00 80%);
+    left: 50vw; top: 10vh;
+    animation-delay: 4s;
+  }
+  @keyframes floatSphere {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-60px) scale(1.1); }
+  }
+  
